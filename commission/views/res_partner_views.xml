@@ -24,27 +24,27 @@
                     name="agent_information"
                     string="Agent information"
                     groups="commission.group_commission_user"
-                    attrs="{'invisible': [('agent', '=', False)]}"
+                    invisible="(agent == False)"
                 >
                     <group>
                         <group>
                             <field
                                 name="agent_type"
-                                attrs="{'required': [('agent', '=', True)]}"
+                                required="(agent == True)"
                             />
                             <field
                                 name="commission_id"
-                                attrs="{'required': [('agent', '=', True)]}"
+                                required="(agent == True)"
                             />
                             <field
                                 name="settlement"
-                                attrs="{'required': [('agent', '=', True)]}"
+                                required="(agent == True)"
                             />
                         </group>
                         <group
                             colspan="2"
                             string="Settlements"
-                            attrs="{'invisible': [('settlement_ids', '=', [])]}"
+                            invisible="(settlement_ids == [])"
                         >
                             <field colspan="2" name="settlement_ids" nolabel="1">
                                 <tree

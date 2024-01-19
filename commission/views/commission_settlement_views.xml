@@ -59,15 +59,16 @@
                 <header>
                     <button
                         string="Cancel"
-                        states="settled"
+                        invisible="state not in ['settled']" 
                         type="object"
                         name="action_cancel"
-                    />
+                    /> <!-- states="settled" should be substituted by invisible="state not in ['settled']"  -->
                     <field name="state" widget="statusbar" />
                 </header>
                 <sheet>
                     <field name="can_edit" invisible="1" />
-                    <group attrs="{'readonly': [('can_edit', '=', False)]}">
+
+                    <group readonly="(can_edit == False)">
                         <group colspan="2">
                             <field name="agent_id" />
                         </group>
@@ -92,7 +93,7 @@
                         <field
                             name="line_ids"
                             nolabel="1"
-                            attrs="{'readonly': [('can_edit', '=', False)]}"
+                            readonly="(can_edit == False)"
                             colspan="2"
                         >
                             <tree editable="top">
