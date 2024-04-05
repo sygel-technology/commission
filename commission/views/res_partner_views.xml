@@ -28,18 +28,9 @@
                 >
                     <group>
                         <group>
-                            <field
-                                name="agent_type"
-                                required="(agent == True)"
-                            />
-                            <field
-                                name="commission_id"
-                                required="(agent == True)"
-                            />
-                            <field
-                                name="settlement"
-                                required="(agent == True)"
-                            />
+                            <field name="agent_type" required="(agent == True)" />
+                            <field name="commission_id" required="(agent == True)" />
+                            <field name="settlement" required="(agent == True)" />
                         </group>
                         <group
                             colspan="2"

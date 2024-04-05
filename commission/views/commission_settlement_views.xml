@@ -59,7 +59,7 @@
                 <header>
                     <button
                         string="Cancel"
-                        invisible="state not in ['settled']" 
+                        invisible="state not in ['settled']"
                         type="object"
                         name="action_cancel"
                     /> <!-- states="settled" should be substituted by invisible="state not in ['settled']"  -->
