@@ -143,6 +143,10 @@ Contributors
 
    -  Ethan Hildick
 
+-  `Sygel <https://www.sygel.es>`__:
+
+   -  Alberto Martínez
+
 Maintainers
 -----------
 

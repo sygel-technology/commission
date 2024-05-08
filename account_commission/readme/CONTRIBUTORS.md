@@ -17,3 +17,5 @@
   - Yoshi Tashiro
 - [Studio73](https://www.studio73.es):
   - Ethan Hildick
+- [Sygel](https://www.sygel.es):
+  - Alberto Martínez

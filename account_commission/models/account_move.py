@@ -88,18 +88,13 @@ class AccountMove(models.Model):
         self.mapped("invoice_line_ids").recompute_agents()
 
     @api.model
-    def _get_view(self, view_id=None, view_type="form", toolbar=False, submenu=False):
+    def _get_view(self, view_id=None, view_type="form", **options):
         """Inject in this method the needed context for not removing other
         possible context values.
         """
-        res = super()._get_view(
-            view_id=view_id,
-            view_type=view_type,
-            toolbar=toolbar,
-            submenu=submenu,
-        )
+        arch, view = super()._get_view(view_id, view_type, **options)
         if view_type == "form":
-            invoice_xml = etree.XML(res["arch"])
+            invoice_xml = etree.XML(arch)
             invoice_line_fields = invoice_xml.xpath("//field[@name='invoice_line_ids']")
             if invoice_line_fields:
                 invoice_line_field = invoice_line_fields[0]
@@ -109,8 +104,8 @@ class AccountMove(models.Model):
                     1,
                 )
                 invoice_line_field.attrib["context"] = context
-                res["arch"] = etree.tostring(invoice_xml)
-        return res
+                arch = etree.tostring(invoice_xml)
+        return arch, view
 
     def unlink(self):
         """Put 'invoiced' settlements associated to the invoices back in
